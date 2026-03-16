@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prime Car & Bike Wash – Street No. 13, Kondapur, Raja Rajeshwara Nagar, Kondapur, Hyderabad, Telangana 500084, India</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #2b2fa8;
+    --yellow: #f5d000;
+    --red: #d32f2f;
+    --white: #ffffff;
+    --dark: #0d0e2e;
+    --card-bg: #1a1d5c;
+    --accent: #f5d000;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--dark);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 5%;
+    background: rgba(13,14,46,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--yellow);
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    color: var(--yellow);
+    letter-spacing: 2px;
+  }
+  .nav-logo span { color: var(--white); }
+  nav ul { list-style: none; display: flex; gap: 30px; }
+  nav ul a {
+    text-decoration: none;
+    color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  nav ul a:hover { color: var(--yellow); }
+  .nav-cta {
+    background: var(--yellow);
+    color: var(--dark) !important;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-weight: 700 !important;
+  }
+  .nav-cta:hover { background: #e0bc00 !important; color: var(--dark) !important; }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 5% 60px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0d0e2e 0%, #1a1d5c 60%, #0d0e2e 100%);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(245,208,0,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(43,47,168,0.4) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  /* animated water drops */
+  .drops { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+  .drop {
+    position: absolute;
+    width: 3px;
+    background: linear-gradient(to bottom, transparent, rgba(245,208,0,0.5), transparent);
+    border-radius: 2px;
+    animation: fall linear infinite;
+    opacity: 0;
+  }
+  @keyframes fall {
+    0%   { transform: translateY(-120px); opacity: 0; }
+    10%  { opacity: 1; }
+    90%  { opacity: 0.6; }
+    100% { transform: translateY(110vh); opacity: 0; }
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: var(--red);
+    color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 12vw, 9rem);
+    line-height: 0.9;
+    letter-spacing: 4px;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+  .hero h1 .prime { color: var(--yellow); display: block; }
+  .hero h1 .sub   { color: var(--white); display: block; font-size: clamp(2rem, 6vw, 5rem); }
+  .hero-tagline {
+    margin-top: 24px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(0.85rem, 2vw, 1.15rem);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+  .hero-actions {
+    margin-top: 40px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+  .btn-primary {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--dark);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 14px 36px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+    box-shadow: 0 4px 20px rgba(245,208,0,0.35);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(245,208,0,0.5); }
+  .btn-outline {
+    display: inline-block;
+    border: 2px solid var(--white);
+    color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 12px 36px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+  }
+  .btn-outline:hover { background: var(--white); color: var(--dark); }
+
+  /* ===== SERVICES ===== */
+  .services {
+    padding: 90px 5%;
+    background: var(--dark);
+    position: relative;
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    letter-spacing: 3px;
+    line-height: 1;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .service-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(245,208,0,0.15);
+    border-radius: 8px;
+    padding: 36px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--yellow);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .service-card:hover { transform: translateY(-4px); border-color: rgba(245,208,0,0.4); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-icon {
+    font-size: 2.4rem;
+    margin-bottom: 18px;
+  }
+  .service-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    color: var(--yellow);
+  }
+  .service-card p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+  }
+
+  /* ===== WHY US ===== */
+  .why {
+    padding: 90px 5%;
+    background: linear-gradient(180deg, var(--dark) 0%, #111440 100%);
+  }
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 32px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .why-item { padding: 20px; }
+  .why-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    color: var(--yellow);
+    line-height: 1;
+  }
+  .why-desc {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+    margin-top: 6px;
+  }
+
+  /* ===== CTA BAND ===== */
+  .cta-band {
+    background: var(--blue);
+    border-top: 3px solid var(--yellow);
+    border-bottom: 3px solid var(--yellow);
+    padding: 60px 5%;
+    text-align: center;
+  }
+  .cta-band h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+  }
+  .cta-band p {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+  }
+  .phone-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--yellow);
+    color: var(--dark);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 3px;
+    padding: 14px 40px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+    box-shadow: 0 4px 24px rgba(245,208,0,0.4);
+  }
+  .phone-link:hover { transform: scale(1.03); box-shadow: 0 8px 36px rgba(245,208,0,0.55); }
+
+  /* ===== MAP ===== */
+  .map-section {
+    padding: 90px 5%;
+    background: var(--dark);
+  }
+  .map-container {
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 2px solid rgba(245,208,0,0.2);
+    box-shadow: 0 12px 50px rgba(0,0,0,0.4);
+  }
+  .map-container iframe {
+    width: 100%;
+    height: 420px;
+    display: block;
+    border: none;
+  }
+  .map-info {
+    background: var(--card-bg);
+    padding: 24px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .map-info-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .map-info-item .icon { font-size: 1.4rem; }
+  .map-info-item div { font-family: 'Barlow Condensed', sans-serif; }
+  .map-info-item .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--yellow); }
+  .map-info-item .value { font-size: 1rem; font-weight: 600; color: var(--white); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: #070818;
+    border-top: 2px solid rgba(245,208,0,0.2);
+    padding: 40px 5% 24px;
+    text-align: center;
+  }
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    color: var(--yellow);
+    letter-spacing: 3px;
+    margin-bottom: 6px;
+  }
+  .footer-logo span { color: var(--white); }
+  .footer-sub {
+    font-family: 'Barlow Condensed', sans-serif;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .footer-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+  .footer-links a {
+    text-decoration: none;
+    color: rgba(255,255,255,0.55);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--yellow); }
+  .footer-copy {
+    color: rgba(255,255,255,0.3);
+    font-size: 0.8rem;
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 600px) {
+    nav ul { display: none; }
+    .hero-actions { flex-direction: column; align-items: center; }
+    .map-info { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">PRIME <span>WASH</span></div>
+  <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#location">Location</a></li>
+    <li><a href="#contact" class="nav-cta">Call Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="drops" id="drops"></div>
+  <div class="hero-badge">🚗 Kondapur's #1 Wash Center</div>
+  <h1>
+    <span class="prime">PRIME</span>
+    <span class="sub">CAR &amp; BIKE WASH</span>
+  </h1>
+  <p class="hero-tagline">Hyderabad · Kondapur · Professional Auto Detailing</p>
+  <div class="hero-actions">
+    <a href="tel:9666768686" class="btn-primary">📞 Call: 9666768686</a>
+    <a href="#services" class="btn-outline">Our Services</a>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-header">
+    <div class="section-label">What We Offer</div>
+    <h2 class="section-title">Our Services</h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🚿</div>
+      <h3>Full Body Wash</h3>
+      <p>Complete exterior wash from top to bottom — spotless, streak-free finish every time.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💨</div>
+      <h3>Interior Dusting</h3>
+      <p>Deep interior clean removing dust, debris, and allergens from every corner of your cabin.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🧴</div>
+      <h3>Matt Shampooing</h3>
+      <p>Professional shampoo treatment for floor mats — removes stains and odors effectively.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🪣</div>
+      <h3>Car Mud Removing</h3>
+      <p>Thorough mud and grime removal from the underbody, wheel arches, and exterior panels.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">✨</div>
+      <h3>Dashboard Polishing</h3>
+      <p>Premium dashboard polish giving your interior a showroom shine and UV protection.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🏍️</div>
+      <h3>Bike Wash</h3>
+      <p>Full wash and detailing for motorcycles and scooters — every model, every size.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- PRICING -->
+<section class="services" id="pricing">
+  <div class="section-header">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-title">Our Prices</h2>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <h3>Cars</h3>
+      <p>Hatchback – ₹550</p>
+      <p>Sedan – ₹600</p>
+      <p>Compact SUV – ₹650</p>
+      <p>SUV – ₹700</p>
+    </div>
+    <div class="service-card">
+      <h3>Bikes & Scooters</h3>
+      <p>Scooty – ₹120</p>
+      <p>Bikes under 300cc – ₹150</p>
+      <p>Bikes above 300cc – ₹200</p>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:30px;font-size:0.9rem;color:rgba(255,255,255,0.7);">
+    * Prices may change depending on season and the level of dirt on the vehicle.
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why">
+  <div class="section-header">
+    <div class="section-label">Why Choose Us</div>
+    <h2 class="section-title">Prime Quality</h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-item">
+      <div class="why-number">5+</div>
+      <div class="why-desc">Services Available</div>
+    </div>
+    <div class="why-item">
+      <div class="why-number">100%</div>
+      <div class="why-desc">Customer Satisfaction</div>
+    </div>
+    <div class="why-item">
+      <div class="why-number">FAST</div>
+      <div class="why-desc">Quick Turnaround</div>
+    </div>
+    <div class="why-item">
+      <div class="why-number">PRO</div>
+      <div class="why-desc">Trained Staff</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band" id="contact">
+  <h2>BOOK YOUR WASH TODAY</h2>
+  <p>Walk in or call us — we're ready to make your vehicle shine</p>
+  <a href="tel:9666768686" class="phone-link">
+    <span>📞</span> 96667 68686
+  </a>
+</section>
+
+<!-- MAP -->
+<section class="map-section" id="location">
+  <div class="section-header">
+    <div class="section-label">Find Us</div>
+    <h2 class="section-title">Our Location</h2>
+  </div>
+  <div class="map-container">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.0!2d78.3557!3d17.4600!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zPrime+Car+%26+Bike+Wash%2C+Kondapur!5e0!3m2!1sen!2sin!4v1"
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+    <div class="map-info">
+      <div class="map-info-item">
+        <span class="icon">📍</span>
+        <div>
+          <div class="label">Address</div>
+          <div class="value">Street No. 13, Kondapur, Raja Rajeshwara Nagar, Kondapur, Hyderabad, Telangana 500084, India</div>
+        </div>
+      </div>
+      <div class="map-info-item">
+        <span class="icon">📞</span>
+        <div>
+          <div class="label">Phone</div>
+          <div class="value"><a href="tel:9666768686" style="color:inherit;text-decoration:none;">9666768686</a></div>
+        </div>
+      </div>
+      <div class="map-info-item">
+        <span class="icon">🕘</span>
+        <div>
+          <div class="label">Hours</div>
+          <div class="value">Weekdays: 9:00 AM – 9:00 PM | Weekends: 9:00 AM – 10:00 PM</div>
+        </div>
+      </div>
+      <a href="https://maps.app.goo.gl/sJG55RM883gqbmGK8" target="_blank" class="btn-primary" style="font-size:0.85rem;padding:10px 22px;">
+        Get Directions →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">PRIME <span>CAR &amp; BIKE WASH</span></div>
+  <div class="footer-sub">Street No. 13, Kondapur, Raja Rajeshwara Nagar, Kondapur, Hyderabad, Telangana 500084, India</div>
+  <div class="footer-links">
+    <a href="#services">Services</a>
+    <a href="#location">Location</a>
+    <a href="tel:9666768686">Call Us</a>
+    <a href="https://maps.app.goo.gl/sJG55RM883gqbmGK8" target="_blank">Google Maps</a>
+  </div>
+  <div class="footer-copy">© 2025 Prime Car & Bike Wash · All rights reserved</div>
+</footer>
+
+<script>
+  // Animated rain drops
+  const drops = document.getElementById('drops');
+  for (let i = 0; i < 30; i++) {
+    const d = document.createElement('div');
+    d.className = 'drop';
+    d.style.left = Math.random() * 100 + '%';
+    d.style.height = (40 + Math.random() * 60) + 'px';
+    d.style.animationDuration = (1.5 + Math.random() * 2.5) + 's';
+    d.style.animationDelay = (Math.random() * 4) + 's';
+    drops.appendChild(d);
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.style.opacity = '1';
+        e.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.service-card, .why-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+</body>
+</html>
